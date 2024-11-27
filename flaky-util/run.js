@@ -93,8 +93,9 @@ async function Run() {
 	// Go through the results
 	console.log("\n\n--- Flakiness results ---\n\n");
 	for (const [suitePath, suite] of resultSuites.entries()) {
+		const nicePath = path.relative(path.resolve(__dirname, '..'), suitePath);
 		if (suite.suiteFlaky) {
-			console.log("\nSuite:", suitePath);
+			console.log("\nSuite:", nicePath);
 			console.log("Suite is flaky - different tests run at different runs");
 			continue;
 		}
@@ -103,7 +104,7 @@ async function Run() {
 		if (!hasFlaky)
 			continue;
 
-		console.log("\nSuite:", suitePath);
+		console.log("\nSuite:", nicePath);
 		for (const test of suite.tests) {
 			if (test.result !== 'flaky')
 				continue;
