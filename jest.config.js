@@ -21,4 +21,8 @@ module.exports = {
 			'presets': ['@babel/preset-env'],
 		}],
 	},
+	reporters: [
+		'default',
+		'./flaky-util/reporter.js'
+	],
 };

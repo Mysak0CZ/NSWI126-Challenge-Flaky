@@ -8,7 +8,8 @@
 		"build": "webpack --env prod --fail-on-warnings --progress",
 		"dev": "webpack serve --progress",
 		"clean": "rimraf out",
-		"test": "jest"
+		"test": "jest",
+		"test:flaky": "node ./flaky-util/run.js"
 	},
 	"packageManager": "pnpm@9.13.2",
 	"dependencies": {
@@ -17,6 +18,7 @@
 		"react-dom": "^18.3.1"
 	},
 	"devDependencies": {
+		"@jest/test-result": "^29.7.0",
 		"@testing-library/jest-dom": "^6.6.3",
 		"@testing-library/react": "^16.0.1",
 		"@testing-library/user-event": "^14.5.2",
